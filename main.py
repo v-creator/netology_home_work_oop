@@ -29,8 +29,8 @@ class Student:
 
     def __str__(self):
         result = f"Имя: {self.name}\nФамилия: {self.surname}\n" \
-                 f"Средняя оценка за лекции: {self.average_grades}\n" \
-                 f"Курсы в процессе изучения: {','.join(self.courses_in_progress)}\n" \
+                 f"Средняя оценка за домашние задания: {self.average_grades}\n" \
+                 f"Курсы в процессе изучения: {', '.join(self.courses_in_progress)}\n" \
                  f"Завершенные курсы: {','.join(self.finished_courses)}"
         return result
 
@@ -58,6 +58,7 @@ class Lecturer(Mentor):
         for lecturer in lecturers:
             result = float(sum(lecturer.grades.get(course)) / len(lecturer.grades.get(course)))
             lecturer.average_grades = result
+        return
 
     def __str__(self):
         result = f'Имя: {self.name}\nФамилия: {self.surname}\n' \
@@ -90,6 +91,7 @@ petrov = Student('Сергей', 'Петров', 'Мужчина')
 petrov.courses_in_progress += ['Python']
 ivanov = Student('Влад', 'Иванов', 'Мужчина')
 ivanov.courses_in_progress += ['Python']
+ivanov.courses_in_progress += ['GIT']
 
 #Создаем экземпляры класса Lecturer
 lecturer_1 = Lecturer('Олег', 'Булыгин')
